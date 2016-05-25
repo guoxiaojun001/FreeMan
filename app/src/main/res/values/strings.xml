@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">FreeMan</string>
+
+
+    <string name="app_home">首页</string>
+    <string name="app_discovery">发现</string>
+    <string name="app_personal">我的</string>
+    <string name="app_setting">设置</string>
+
+</resources>
