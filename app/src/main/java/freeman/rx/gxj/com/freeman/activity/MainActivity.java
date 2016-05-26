@@ -115,7 +115,7 @@ public class MainActivity extends BaseActivity {
                     break;
                 case R.id.go_personal_fragment:
                     Toast.makeText(MainActivity.this,"333",Toast.LENGTH_SHORT).show();
-
+                    break;
                 case R.id.go_setting:
                     Toast.makeText(MainActivity.this,"444",Toast.LENGTH_SHORT).show();
                     intent = new Intent(MainActivity.this,SettingActivity.class);
@@ -149,6 +149,8 @@ public class MainActivity extends BaseActivity {
             @Override
             public void onClick(View v) {
                 Toast.makeText(MainActivity.this,"qqqqqq",Toast.LENGTH_SHORT).show();
+                intent = new Intent(MainActivity.this,QQTabActivity.class);
+                startActivity(intent);
             }
         });
 

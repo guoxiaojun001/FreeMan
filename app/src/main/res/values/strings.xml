@@ -8,6 +8,7 @@
     <string name="app_setting">设置</string>
     <string name="app_recommend">推荐</string>
 
+    <string name="app_shimmer_text">欢迎欢迎，热烈欢迎</string>
 
     <string name="action_settings">设置</string>
     <string name="app_description">Android drawer icon with material design animation</string>
@@ -22,11 +23,11 @@
     <string name="action_share">分享</string>
     <string name="action_grade">赏个好评</string>
     <string name="action_favoriter">收藏</string>
-    <string name="setting_factory">微时代工作室</string>
-    <string name="setting_factory_web">www.itlanbao.com</string>
+    <string name="setting_factory">小白作坊</string>
+    <string name="setting_factory_web">https://github.com/guoxiaojun001/FreeMan</string>
     <string name="setting_email">联系我们</string>
-    <string name="setting_email_username">邮箱 : pjc916568516@163.com</string>
-    <string name="setting_pay">捐助开发者</string>
-    <string name="setting_pay_username">支付宝帐号 : pjc916568516@163.com</string>
+    <string name="setting_email_username">邮箱 : test@163.com</string>
+    <string name="setting_pay">简介</string>
+    <string name="setting_pay_username">其他 : test@163.com</string>
 
 </resources>

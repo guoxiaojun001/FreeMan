@@ -78,10 +78,8 @@ public class SettingActivity extends BaseActivity implements OnClickListener,
 			AppUtils.goMarket(SettingActivity.this);
 			break;
 		case R.id.logout:
-				// 登录
-				Intent intent = new Intent(this, LoginActivity.class);
-				startActivity(intent);
-				finish();
+				// 退出
+			Toast.makeText(this, "退出", Toast.LENGTH_SHORT).show();
 				int4Right();
 			break;
 
