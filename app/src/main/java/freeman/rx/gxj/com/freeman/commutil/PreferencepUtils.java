@@ -3,6 +3,8 @@ package freeman.rx.gxj.com.freeman.commutil;
 import android.content.Context;
 import android.content.SharedPreferences;
 
+import freeman.rx.gxj.com.freeman.parent.BaseActivity;
+
 /**
  * Created by gxj on 2016/5/23.
  */
@@ -32,5 +34,21 @@ public class PreferencepUtils {
     public boolean isFirstUse(){
         boolean isFirst = sharedPreferences.getBoolean(firstUse,true);
         return isFirst;
+    }
+
+    public void setBoolean(BaseActivity mActivity, String key,
+                           boolean value) {
+        SharedPreferences sp = mActivity.getSharedPreferences("config",
+                Context.MODE_PRIVATE);
+        SharedPreferences.Editor edit = sp.edit();
+        edit.putBoolean(key, value);
+        edit.commit();
+    }
+
+    public boolean getBoolean(BaseActivity mActivity, String key,
+                                     boolean defValue) {
+        SharedPreferences sp = mActivity.getSharedPreferences("config",
+                Context.MODE_PRIVATE);
+        return sp.getBoolean(key, defValue);
     }
 }

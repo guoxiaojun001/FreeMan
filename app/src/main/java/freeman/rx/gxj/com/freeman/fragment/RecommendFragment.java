@@ -11,7 +11,7 @@ import freeman.rx.gxj.com.freeman.parent.BaseFragment;
 /**
  * Created by gxj on 2016/5/23.
  */
-public class SettingFragment extends BaseFragment{
+public class RecommendFragment extends BaseFragment{
 
     private View rootView;
 

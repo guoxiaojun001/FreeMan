@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <group
+        android:id="@+id/planet_group_1"
+        android:checkableBehavior="single">
+        <item
+            android:id="@+id/go_home_fragment"
+            android:icon="@mipmap/icon_num1_press"
+            android:title="@string/app_home" />
+        <item
+            android:id="@+id/go_discovery_fragment"
+            android:icon="@mipmap/icon_num2_press"
+            android:title="@string/app_discovery" />
+
+    </group>
+
+    <group
+        android:id="@+id/planet_group_2"
+        android:checkableBehavior="single">
+        <item
+            android:id="@+id/go_recommend_fragment"
+            android:icon="@mipmap/icon_num3_press"
+            android:title="@string/app_recommend" />
+        <item
+            android:id="@+id/go_personal_fragment"
+            android:icon="@mipmap/icon_num4_press"
+            android:title="@string/app_personal" />
+
+        <item
+            android:id="@+id/go_setting"
+            android:icon="@mipmap/img_5"
+            android:title="@string/app_setting" />
+    </group>
+</menu>

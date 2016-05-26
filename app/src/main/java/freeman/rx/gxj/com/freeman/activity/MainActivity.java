@@ -1,9 +1,11 @@
 package freeman.rx.gxj.com.freeman.activity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.widget.DrawerLayout;
 import android.view.Gravity;
 import android.view.LayoutInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
@@ -14,29 +16,35 @@ import com.nineoldandroids.view.ViewHelper;
 
 import java.util.ArrayList;
 
+import freeman.rx.gxj.com.freeman.commutil.CircleImageLoader;
 import freeman.rx.gxj.com.freeman.fragment.DiscoveryFragment;
 import freeman.rx.gxj.com.freeman.fragment.HomeFragment;
 import freeman.rx.gxj.com.freeman.fragment.PersonalFragment;
-import freeman.rx.gxj.com.freeman.fragment.SettingFragment;
+import freeman.rx.gxj.com.freeman.fragment.RecommendFragment;
 import freeman.rx.gxj.com.freeman.parent.BaseActivity;
 import freeman.rx.gxj.com.freeman.tab.FragmentTabHost;
 import freeman.rx.gxj.com.freeman.tab.Tab;
+import android.support.design.widget.NavigationView;
+import android.widget.Toast;
 
 
 public class MainActivity extends BaseActivity {
-
+    String url = "http://img1.imgtn.bdimg.com/it/u=2215239751,3809037166&fm=21&gp=0.jpg";
     private FragmentTabHost mTabHost;
     private LayoutInflater mInflater;
     private ArrayList<Tab> mTabs = new ArrayList<Tab>(4);
     private Tab[] tabs;
 
     private DrawerLayout mDrawerLayout;
+    private NavigationView mNavigationView , mNavigationView2;
+    private View headerView ,headerView2;
 
+    private ImageView head_image ,head_image2;
+    private Intent intent;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
         setContentView(R.layout.activity_main);
 
         preferencepUtils.setFirstUse(true);
@@ -51,13 +59,13 @@ public class MainActivity extends BaseActivity {
 
         Tab num1 = new Tab(R.string.app_home, R.drawable.selector_icon_num1, HomeFragment.class);
         Tab num2 = new Tab(R.string.app_discovery, R.drawable.selector_icon_num2, DiscoveryFragment.class);
-        Tab num3 = new Tab(R.string.app_setting, R.drawable.selector_icon_num3, SettingFragment.class);
+        Tab num3 = new Tab(R.string.app_recommend, R.drawable.selector_icon_num3, RecommendFragment.class);
         Tab num4 = new Tab(R.string.app_personal, R.drawable.selector_icon_num4, PersonalFragment.class);
 
         mTabs.add(num1);
         mTabs.add(num2);
-        mTabs.add(num4);
         mTabs.add(num3);
+        mTabs.add(num4);
 
         for (Tab tab : mTabs) {
             TabHost.TabSpec tabSpec = mTabHost.newTabSpec(getString(tab.getTitle()));
@@ -76,24 +84,97 @@ public class MainActivity extends BaseActivity {
         mTabHost.setCurrentTab(0);
 
         initDrawerLayout();
+        setupDrawerContent(mNavigationView);
+
+        setupDrawerContent(mNavigationView2);
     }
+
+    private void setupDrawerContent(NavigationView navigationView) {
+        navigationView.setNavigationItemSelectedListener(
+                new NavigationView.OnNavigationItemSelectedListener() {
+                    @Override
+                    public boolean onNavigationItemSelected(MenuItem menuItem) {
+                        selectDrawerItem(menuItem);
+                        menuItem.setChecked(true);
+                        mDrawerLayout.closeDrawers();
+                        return true;
+                    }
+                });
+    }
+
+    private void selectDrawerItem(MenuItem menuItem) {
+            switch (menuItem.getItemId()) {
+                case R.id.go_home_fragment:
+                    Toast.makeText(MainActivity.this,"000",Toast.LENGTH_SHORT).show();
+                    break;
+                case R.id.go_discovery_fragment:
+                    Toast.makeText(MainActivity.this,"111",Toast.LENGTH_SHORT).show();
+                    break;
+                case R.id.go_recommend_fragment:
+                    Toast.makeText(MainActivity.this,"222",Toast.LENGTH_SHORT).show();
+                    break;
+                case R.id.go_personal_fragment:
+                    Toast.makeText(MainActivity.this,"333",Toast.LENGTH_SHORT).show();
+
+                case R.id.go_setting:
+                    Toast.makeText(MainActivity.this,"444",Toast.LENGTH_SHORT).show();
+                    intent = new Intent(MainActivity.this,SettingActivity.class);
+                    startActivity(intent);
+                    break;
+                default:
+                    break;
+            }
+
+            // Highlight the selected item has been done by NavigationView
+            menuItem.setChecked(true);
+            // Set action bar title
+            setTitle(menuItem.getTitle());
+            // Close the navigation drawer
+            //mDrawerLayout.closeDrawers();
+    }
+
 
     public void OpenRightMenu()  {
         mDrawerLayout.openDrawer(Gravity.RIGHT);
-        mDrawerLayout.setDrawerLockMode(DrawerLayout.LOCK_MODE_UNLOCKED,
-                Gravity.RIGHT);
+        mDrawerLayout.setDrawerLockMode(DrawerLayout.LOCK_MODE_UNLOCKED,Gravity.RIGHT);
     }
 
     private void initDrawerLayout() {
+        mNavigationView = (NavigationView) findViewById(R.id.nav_view);
+        headerView = mNavigationView.getHeaderView(0);
+        head_image = (ImageView) headerView.findViewById(R.id.head_image);
+        CircleImageLoader.loadHeadImage(url,head_image);
+
+        head_image.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(MainActivity.this,"qqqqqq",Toast.LENGTH_SHORT).show();
+            }
+        });
+
+        mNavigationView2 = (NavigationView) findViewById(R.id.nav_view2);
+        headerView2 = mNavigationView2.getHeaderView(0);
+        head_image2 = (ImageView) headerView2.findViewById(R.id.head_image);
+        CircleImageLoader.loadHeadImage(url,head_image2);
+
+        head_image2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(MainActivity.this,"qqqqqq",Toast.LENGTH_SHORT).show();
+            }
+        });
+
+
         mDrawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
         mDrawerLayout.setDrawerLockMode(DrawerLayout.LOCK_MODE_LOCKED_CLOSED, Gravity.RIGHT);
+
         mDrawerLayout.addDrawerListener(new DrawerLayout.DrawerListener() {
             @Override
             public void onDrawerStateChanged(int newState) {   }
 
             @Override
             public void onDrawerSlide(View drawerView, float slideOffset)  {
-                View mContent = mDrawerLayout.getChildAt(3);//此处是确定 哪个子view需要位移效果
+                View mContent = mDrawerLayout.getChildAt(1);//此处是确定 哪个子view需要位移效果
                 View mMenu = drawerView;
                 float scale = 1 - slideOffset;
                 float rightScale = 0.8f + scale * 0.2f;
@@ -130,8 +211,7 @@ public class MainActivity extends BaseActivity {
 
             @Override
             public void onDrawerClosed(View drawerView)  {
-                mDrawerLayout.setDrawerLockMode(
-                        DrawerLayout.LOCK_MODE_LOCKED_CLOSED, Gravity.RIGHT);
+                mDrawerLayout.setDrawerLockMode(DrawerLayout.LOCK_MODE_LOCKED_CLOSED,Gravity.RIGHT);
             }
         });
     }

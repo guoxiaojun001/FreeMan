@@ -7,26 +7,15 @@ import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.KeyEvent;
-import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
-import android.widget.TabHost;
 import android.widget.TextView;
 
-import java.util.ArrayList;
-
-import freeman.rx.gxj.com.freeman.commutil.LogUtils;
 import freeman.rx.gxj.com.freeman.commutil.ValidateCode;
-import freeman.rx.gxj.com.freeman.fragment.DiscoveryFragment;
-import freeman.rx.gxj.com.freeman.fragment.HomeFragment;
-import freeman.rx.gxj.com.freeman.fragment.PersonalFragment;
-import freeman.rx.gxj.com.freeman.fragment.SettingFragment;
 import freeman.rx.gxj.com.freeman.parent.BaseActivity;
-import freeman.rx.gxj.com.freeman.tab.FragmentTabHost;
-import freeman.rx.gxj.com.freeman.tab.Tab;
 
 
 public class LoginActivity extends BaseActivity implements View.OnClickListener,TextWatcher {

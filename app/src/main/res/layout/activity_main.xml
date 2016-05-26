@@ -1,31 +1,32 @@
 <?xml version="1.0" encoding="utf-8"?>
 <android.support.v4.widget.DrawerLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/drawer_layout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#00000000">
 
     <View
+        android:visibility="gone"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"/>
 
+    <!--<fragment-->
+        <!--android:id="@+id/left_menu"-->
+        <!--android:name="freeman.rx.gxj.com.freeman.fragment.MenuLeftFragment"-->
+        <!--android:layout_width="200dp"-->
+        <!--android:layout_height="match_parent"-->
+        <!--android:layout_gravity="left"-->
+        <!--android:tag="LEFT" />-->
 
-    <fragment
-        android:id="@+id/id_left_menu"
-        android:name="freeman.rx.gxj.com.freeman.fragment.MenuLeftFragment"
-        android:layout_width="200dp"
-        android:layout_height="match_parent"
-        android:layout_gravity="left"
-        android:tag="LEFT" />
-
-    <fragment
-        android:id="@+id/id_right_menu"
-        android:name="freeman.rx.gxj.com.freeman.fragment.MenuRightFragment"
-        android:layout_width="100dp"
-        android:layout_height="match_parent"
-        android:layout_gravity="right"
-        android:tag="RIGHT" />
+    <!--<fragment-->
+        <!--android:id="@+id/id_right_menu"-->
+        <!--android:name="freeman.rx.gxj.com.freeman.fragment.MenuRightFragment"-->
+        <!--android:layout_width="100dp"-->
+        <!--android:layout_height="match_parent"-->
+        <!--android:layout_gravity="right"-->
+        <!--android:tag="RIGHT" />-->
 
     <LinearLayout
         android:orientation="vertical"
@@ -41,7 +42,6 @@
             android:layout_weight="1"
             />
 
-
         <freeman.rx.gxj.com.freeman.tab.FragmentTabHost
             android:id="@android:id/tabhost"
             android:layout_width="fill_parent"
@@ -56,4 +56,23 @@
         </freeman.rx.gxj.com.freeman.tab.FragmentTabHost>
 
     </LinearLayout>
+
+    <android.support.design.widget.NavigationView
+        android:id="@+id/nav_view"
+        android:layout_width="200dp"
+        android:layout_height="match_parent"
+        android:layout_gravity="left"
+        app:headerLayout="@layout/drawer_header"
+        android:tag="LEFT"
+        app:menu="@menu/drawer_view" />
+
+    <android.support.design.widget.NavigationView
+        android:id="@+id/nav_view2"
+        android:layout_width="200dp"
+        android:layout_height="match_parent"
+        android:layout_gravity="right"
+        app:headerLayout="@layout/drawer_header"
+        android:tag="RIGHT"
+        app:menu="@menu/drawer_view" />
+
 </android.support.v4.widget.DrawerLayout>

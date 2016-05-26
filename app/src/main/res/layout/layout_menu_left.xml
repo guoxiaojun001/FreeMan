@@ -12,6 +12,7 @@
         android:orientation="vertical" >
 
         <RelativeLayout
+            android:id="@+id/me"
             android:layout_width="match_parent"
             android:layout_height="wrap_content" >
 
@@ -40,6 +41,7 @@
         </RelativeLayout>
 
         <RelativeLayout
+            android:id="@+id/go_home"
             android:layout_width="match_parent"
             android:layout_height="wrap_content" >
 
@@ -64,6 +66,7 @@
         </RelativeLayout>
 
         <RelativeLayout
+            android:id="@+id/go_discovery"
             android:layout_width="match_parent"
             android:layout_height="wrap_content" >
 
@@ -88,6 +91,7 @@
         </RelativeLayout>
 
         <RelativeLayout
+            android:id="@+id/go_personal"
             android:layout_width="match_parent"
             android:layout_height="wrap_content" >
 
@@ -98,7 +102,7 @@
                 android:layout_centerVertical="true"
                 android:layout_marginLeft="20dp"
                 android:layout_marginTop="10dp"
-                android:src="@mipmap/icon_num3_press" />
+                android:src="@mipmap/icon_num4_press" />
 
             <TextView
                 android:layout_width="fill_parent"
@@ -112,6 +116,7 @@
         </RelativeLayout>
 
         <RelativeLayout
+            android:id="@+id/go_setting"
             android:layout_width="match_parent"
             android:layout_height="wrap_content" >
 
@@ -122,7 +127,7 @@
                 android:layout_centerVertical="true"
                 android:layout_marginLeft="20dp"
                 android:layout_marginTop="10dp"
-                android:src="@mipmap/icon_num4_press" />
+                android:src="@mipmap/icon_num3_press" />
 
             <TextView
                 android:layout_width="fill_parent"
@@ -136,6 +141,7 @@
         </RelativeLayout>
 
         <RelativeLayout
+            android:id="@+id/go_exit"
             android:layout_width="match_parent"
             android:layout_height="wrap_content" >
 
@@ -160,6 +166,7 @@
         </RelativeLayout>
 
         <RelativeLayout
+            android:id="@+id/go_about"
             android:layout_width="match_parent"
             android:layout_height="wrap_content" >
 

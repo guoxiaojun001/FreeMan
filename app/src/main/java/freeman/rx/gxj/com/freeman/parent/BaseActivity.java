@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 
+import freeman.rx.gxj.com.freeman.activity.R;
 import freeman.rx.gxj.com.freeman.commutil.LogUtils;
 import freeman.rx.gxj.com.freeman.commutil.PreferencepUtils;
 
@@ -36,6 +37,13 @@ public class BaseActivity extends AppCompatActivity {
             e.printStackTrace();
             return null;
         }
+    }
+
+
+
+    public void int4Right() {
+        overridePendingTransition(R.anim.new_dync_in_from_right,
+                R.anim.new_dync_no);
     }
 
 }

@@ -15,4 +15,16 @@
     <color name="common_title">#F9F9F9</color>
     <color name="devide_line">#CBCED2</color>
     <color name="blue">#499BF7</color>
+
+    <color name="divider">#FF18AA8D</color>
+    <color name="text_color">#aaB2B2B2</color>
+
+    <color name="actionbar_color_2">#ff607d8b</color>
+    <color name="slide_color">#FF40Ad7e</color>
+    <color name="slide_color_2">#ff607d8b</color>
+    <color name="drawer_arrow_second_color">#ff303f9f</color>
+
+    <color name="bg_page">#ffffffff</color>
+    <color name="actionbar_color">#FF4DD298</color>
+    <color name="tab_bg">#993dc1c5</color>
 </resources>
