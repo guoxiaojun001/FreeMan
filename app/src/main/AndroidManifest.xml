@@ -24,6 +24,9 @@
 
         <activity android:name=".SettingActivity" />
         <activity android:name=".QQTabActivity" />
+        <activity android:name="freeman.rx.gxj.com.freeman.recycleractivity.PullToRefreshActivity" />
+        <activity android:name="freeman.rx.gxj.com.freeman.recycleractivity.GridPullToRefreshActivity" />
+        <activity android:name="freeman.rx.gxj.com.freeman.recycleractivity.PullToRefreshExpandActivity" />
 
     </application>
 

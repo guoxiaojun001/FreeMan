@@ -22,6 +22,9 @@ import freeman.rx.gxj.com.freeman.fragment.HomeFragment;
 import freeman.rx.gxj.com.freeman.fragment.PersonalFragment;
 import freeman.rx.gxj.com.freeman.fragment.RecommendFragment;
 import freeman.rx.gxj.com.freeman.parent.BaseActivity;
+import freeman.rx.gxj.com.freeman.recycleractivity.GridPullToRefreshActivity;
+import freeman.rx.gxj.com.freeman.recycleractivity.PullToRefreshActivity;
+import freeman.rx.gxj.com.freeman.recycleractivity.PullToRefreshExpandActivity;
 import freeman.rx.gxj.com.freeman.tab.FragmentTabHost;
 import freeman.rx.gxj.com.freeman.tab.Tab;
 import android.support.design.widget.NavigationView;
@@ -148,7 +151,7 @@ public class MainActivity extends BaseActivity {
         head_image.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(MainActivity.this,"qqqqqq",Toast.LENGTH_SHORT).show();
+                Toast.makeText(MainActivity.this,"ppppp",Toast.LENGTH_SHORT).show();
                 intent = new Intent(MainActivity.this,QQTabActivity.class);
                 startActivity(intent);
             }
@@ -163,9 +166,14 @@ public class MainActivity extends BaseActivity {
             @Override
             public void onClick(View v) {
                 Toast.makeText(MainActivity.this,"qqqqqq",Toast.LENGTH_SHORT).show();
+//                intent = new Intent(MainActivity.this,PullToRefreshActivity.class);
+//                intent = new Intent(MainActivity.this,GridPullToRefreshActivity.class);
+                intent = new Intent(MainActivity.this,PullToRefreshExpandActivity.class);
+
+                startActivity(intent);
+                mDrawerLayout.closeDrawers();
             }
         });
-
 
         mDrawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
         mDrawerLayout.setDrawerLockMode(DrawerLayout.LOCK_MODE_LOCKED_CLOSED, Gravity.RIGHT);
