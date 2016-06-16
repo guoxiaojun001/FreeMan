@@ -211,11 +211,6 @@ public class MainActivity extends BaseActivity {
             @Override
             public void onClick(View v) {
                 Toast.makeText(MainActivity.this,"qqqqqq",Toast.LENGTH_SHORT).show();
-//                intent = new Intent(MainActivity.this,PullToRefreshActivity.class);
-//                intent = new Intent(MainActivity.this,GridPullToRefreshActivity.class);
-                intent = new Intent(MainActivity.this,PullToRefreshExpandActivity.class);
-
-                startActivity(intent);
                 mDrawerLayout.closeDrawers();
             }
         });
@@ -230,12 +225,12 @@ public class MainActivity extends BaseActivity {
 
             @Override
             public void onDrawerSlide(View drawerView, float slideOffset)  {
-                View mContent = mDrawerLayout.getChildAt(1);//此处是确定 哪个子view需要位移效果
+                View mContent = mDrawerLayout.getChildAt(1);//此处是确定 哪个子view需要动画效果
                 View mMenu = drawerView;
                 float scale = 1 - slideOffset;
                 float rightScale = 0.8f + scale * 0.2f;
 
-                if (drawerView.getTag().equals("LEFT")) {
+                if (drawerView.getTag().equals("RIGHT")) {
                     float leftScale = 1 - 0.3f * scale;
 
                     ViewHelper.setScaleX(mMenu, leftScale);
