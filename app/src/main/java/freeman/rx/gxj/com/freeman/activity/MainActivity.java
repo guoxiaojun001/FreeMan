@@ -29,6 +29,7 @@ import freeman.rx.gxj.com.freeman.parent.BaseActivity;
 import freeman.rx.gxj.com.freeman.recycleractivity.GridPullToRefreshActivity;
 import freeman.rx.gxj.com.freeman.recycleractivity.PullToRefreshActivity;
 import freeman.rx.gxj.com.freeman.recycleractivity.PullToRefreshExpandActivity;
+import freeman.rx.gxj.com.freeman.recycleractivity.TreeAdapterViewActivity;
 import freeman.rx.gxj.com.freeman.tab.FragmentTabHost;
 import freeman.rx.gxj.com.freeman.tab.Tab;
 import android.support.design.widget.NavigationView;
@@ -37,6 +38,8 @@ import android.widget.Toast;
 
 public class MainActivity extends BaseActivity {
     String url = "http://img1.imgtn.bdimg.com/it/u=2215239751,3809037166&fm=21&gp=0.jpg";
+    String url2 = "http://img3.imgtn.bdimg.com/it/u=2851316075,3722502482&fm=11&gp=0.jpg";
+
     private FragmentTabHost mTabHost;
     private LayoutInflater mInflater;
     private ArrayList<Tab> mTabs = new ArrayList<Tab>(4);
@@ -160,6 +163,12 @@ public class MainActivity extends BaseActivity {
                 startActivity(intent);
                 break;
 
+
+            case R.id.go_others:
+                intent = new Intent(MainActivity.this,TreeAdapterViewActivity.class);
+                startActivity(intent);
+                break;
+
             default:
                 break;
         }
@@ -196,7 +205,7 @@ public class MainActivity extends BaseActivity {
         mNavigationView2 = (NavigationView) findViewById(R.id.nav_view2);
         headerView2 = mNavigationView2.getHeaderView(0);
         head_image2 = (ImageView) headerView2.findViewById(R.id.head_image);
-        CircleImageLoader.loadHeadImage(url,head_image2);
+        CircleImageLoader.loadHeadImage(url2,head_image2);
 
         head_image2.setOnClickListener(new View.OnClickListener() {
             @Override

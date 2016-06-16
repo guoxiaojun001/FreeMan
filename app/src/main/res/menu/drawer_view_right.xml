@@ -27,5 +27,10 @@
             android:icon="@mipmap/icon_num4_press"
             android:title="讨论组" />
 
+        <item
+            android:id="@+id/go_others"
+            android:icon="@mipmap/icon_num4_press"
+            android:title="其他" />
+
     </group>
 </menu>

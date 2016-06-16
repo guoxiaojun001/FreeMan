@@ -28,11 +28,13 @@
         <activity android:name="freeman.rx.gxj.com.freeman.recycleractivity.GridPullToRefreshActivity"/>
         <activity android:name="freeman.rx.gxj.com.freeman.recycleractivity.PullToRefreshExpandActivity"/>
 
+        <activity android:name="freeman.rx.gxj.com.freeman.recycleractivity.TreeAdapterViewActivity"/>
 
         <activity android:name="freeman.rx.gxj.com.freeman.drag.LinearDragActivity"/>
         <activity android:name="freeman.rx.gxj.com.freeman.drag.CustomDragActivity"/>
         <activity android:name="freeman.rx.gxj.com.freeman.drag.GridDragActivity"/>
         <activity android:name="freeman.rx.gxj.com.freeman.drag.DynamicDragActivity"/>
+
 
     </application>
 
