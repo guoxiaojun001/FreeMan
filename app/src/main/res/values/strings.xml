@@ -45,5 +45,6 @@
     <string name="channel_sort_delete">排序/删除</string>
     <string name="more_channel">更多频道</string>
     <string name="input_like_channel">输入你感兴趣的频道</string>
+    <string name="complete">完成</string>
 
 </resources>

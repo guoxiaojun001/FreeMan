@@ -64,7 +64,7 @@
         android:layout_gravity="left"
         app:headerLayout="@layout/drawer_header"
         android:tag="LEFT"
-        app:menu="@menu/drawer_view" />
+        app:menu="@menu/drawer_view_left" />
 
     <android.support.design.widget.NavigationView
         android:id="@+id/nav_view2"
@@ -73,6 +73,6 @@
         android:layout_gravity="right"
         app:headerLayout="@layout/drawer_header"
         android:tag="RIGHT"
-        app:menu="@menu/drawer_view" />
+        app:menu="@menu/drawer_view_right" />
 
 </android.support.v4.widget.DrawerLayout>

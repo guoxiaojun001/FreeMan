@@ -17,6 +17,10 @@ import com.nineoldandroids.view.ViewHelper;
 import java.util.ArrayList;
 
 import freeman.rx.gxj.com.freeman.commutil.CircleImageLoader;
+import freeman.rx.gxj.com.freeman.drag.CustomDragActivity;
+import freeman.rx.gxj.com.freeman.drag.DynamicDragActivity;
+import freeman.rx.gxj.com.freeman.drag.GridDragActivity;
+import freeman.rx.gxj.com.freeman.drag.LinearDragActivity;
 import freeman.rx.gxj.com.freeman.fragment.DiscoveryFragment;
 import freeman.rx.gxj.com.freeman.fragment.HomeFragment;
 import freeman.rx.gxj.com.freeman.fragment.PersonalFragment;
@@ -87,6 +91,7 @@ public class MainActivity extends BaseActivity {
         mTabHost.setCurrentTab(0);
 
         initDrawerLayout();
+        //设置菜单事件处理
         setupDrawerContent(mNavigationView);
 
         setupDrawerContent(mNavigationView2);
@@ -106,34 +111,65 @@ public class MainActivity extends BaseActivity {
     }
 
     private void selectDrawerItem(MenuItem menuItem) {
-            switch (menuItem.getItemId()) {
-                case R.id.go_home_fragment:
-                    Toast.makeText(MainActivity.this,"000",Toast.LENGTH_SHORT).show();
-                    break;
-                case R.id.go_discovery_fragment:
-                    Toast.makeText(MainActivity.this,"111",Toast.LENGTH_SHORT).show();
-                    break;
-                case R.id.go_recommend_fragment:
-                    Toast.makeText(MainActivity.this,"222",Toast.LENGTH_SHORT).show();
-                    break;
-                case R.id.go_personal_fragment:
-                    Toast.makeText(MainActivity.this,"333",Toast.LENGTH_SHORT).show();
-                    break;
-                case R.id.go_setting:
-                    Toast.makeText(MainActivity.this,"444",Toast.LENGTH_SHORT).show();
-                    intent = new Intent(MainActivity.this,SettingActivity.class);
-                    startActivity(intent);
-                    break;
-                default:
-                    break;
-            }
+        switch (menuItem.getItemId()) {
+            //**************左边菜单
+            case R.id.go_home_fragment:
+                Toast.makeText(MainActivity.this,"000",Toast.LENGTH_SHORT).show();
+                intent = new Intent(MainActivity.this,PullToRefreshActivity.class);
+                startActivity(intent);
+                break;
+            case R.id.go_discovery_fragment:
+                Toast.makeText(MainActivity.this,"111",Toast.LENGTH_SHORT).show();
+                intent = new Intent(MainActivity.this,GridPullToRefreshActivity.class);
+                startActivity(intent);
+                break;
+            case R.id.go_recommend_fragment:
+                Toast.makeText(MainActivity.this,"222",Toast.LENGTH_SHORT).show();
+                intent = new Intent(MainActivity.this,PullToRefreshExpandActivity.class);
 
-            // Highlight the selected item has been done by NavigationView
-            menuItem.setChecked(true);
-            // Set action bar title
-            setTitle(menuItem.getTitle());
-            // Close the navigation drawer
-            //mDrawerLayout.closeDrawers();
+                startActivity(intent);
+                break;
+            case R.id.go_personal_fragment:
+                Toast.makeText(MainActivity.this,"333",Toast.LENGTH_SHORT).show();
+
+                break;
+            case R.id.go_setting:
+                Toast.makeText(MainActivity.this,"444",Toast.LENGTH_SHORT).show();
+                intent = new Intent(MainActivity.this,SettingActivity.class);
+                startActivity(intent);
+                break;
+
+            //**************右边菜单
+            case R.id.go_scanner:
+                intent = new Intent(MainActivity.this,LinearDragActivity.class);
+                startActivity(intent);
+                break;
+
+            case R.id.go_sports:
+                intent = new Intent(MainActivity.this,GridDragActivity.class);
+                startActivity(intent);
+                break;
+
+            case R.id.go_test:
+                intent = new Intent(MainActivity.this,DynamicDragActivity.class);
+                startActivity(intent);
+                break;
+
+            case R.id.go_talk:
+                intent = new Intent(MainActivity.this,CustomDragActivity.class);
+                startActivity(intent);
+                break;
+
+            default:
+                break;
+        }
+
+        // Highlight the selected item has been done by NavigationView
+        menuItem.setChecked(true);
+        // Set action bar title
+        setTitle(menuItem.getTitle());
+        // Close the navigation drawer
+        //mDrawerLayout.closeDrawers();
     }
 
 
@@ -176,6 +212,7 @@ public class MainActivity extends BaseActivity {
         });
 
         mDrawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
+        //设置固定右边
         mDrawerLayout.setDrawerLockMode(DrawerLayout.LOCK_MODE_LOCKED_CLOSED, Gravity.RIGHT);
 
         mDrawerLayout.addDrawerListener(new DrawerLayout.DrawerListener() {
