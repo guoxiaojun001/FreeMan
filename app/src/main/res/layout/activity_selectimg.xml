@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#ffffff"
@@ -76,24 +78,28 @@
                 </HorizontalScrollView>
             </LinearLayout>
 
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="#ffffff"
-                android:orientation="vertical" >
+                android:orientation="horizontal"
+                android:paddingBottom="5dp" >
 
-                <TextView style="@style/long_lines_style" />
-
-                <EditText
+                <freeman.rx.gxj.com.freeman.view.MeterailEditText
                     android:id="@+id/comment_content"
+                    android:layout_weight="1"
                     android:layout_width="fill_parent"
-                    android:layout_height="100dp"
-                    android:layout_margin="8dp"
-                    android:gravity="left|top"
-                    android:textColor="#6F6F6F"
-                    android:textColorHint="#b9b9b9" >
-                </EditText>
+                    android:layout_height="wrap_content"
+                    app:hint="写点什么吧" />
 
+                <ImageView
+                    android:id="@+id/iv_send"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="bottom"
+                    android:layout_marginLeft="8dp"
+                    android:layout_marginRight="8dp"
+                    android:background="@mipmap/ic_menu_send" />
             </LinearLayout>
 
             <!--<LinearLayout-->

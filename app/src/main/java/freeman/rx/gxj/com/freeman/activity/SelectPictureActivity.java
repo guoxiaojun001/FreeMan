@@ -3,6 +3,8 @@ package freeman.rx.gxj.com.freeman.activity;
 import freeman.rx.gxj.com.freeman.commutil.Bimp;
 import freeman.rx.gxj.com.freeman.commutil.FileUtils;
 import freeman.rx.gxj.com.freeman.parent.BaseActivity;
+import freeman.rx.gxj.com.freeman.view.MeterailEditText;
+
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Color;
@@ -65,7 +67,7 @@ public class SelectPictureActivity extends BaseActivity implements OnItemClickLi
 
     private TextView activity_selectimg_send;
     private ImageView back;
-    private EditText comment_content;
+    private MeterailEditText comment_content;
     private String temp;
     private Button selectimg_bt_content_type, selectimg_bt_search;
 //    private LinearLayout selectimg_relativeLayout_below;
@@ -90,7 +92,7 @@ public class SelectPictureActivity extends BaseActivity implements OnItemClickLi
 
     public void Init() {
         dp = getResources().getDimension(R.dimen.dp);
-        comment_content = (EditText) findViewById(R.id.comment_content);
+        comment_content = (MeterailEditText) findViewById(R.id.comment_content);
         comment_content.setFocusable(true);
         comment_content.setFocusableInTouchMode(true);
 
@@ -108,28 +110,7 @@ public class SelectPictureActivity extends BaseActivity implements OnItemClickLi
         gridview = (GridView) findViewById(R.id.noScrollgridview);
         gridview.setSelector(new ColorDrawable(Color.TRANSPARENT));
         gridviewInit();
-        comment_content.addTextChangedListener(new TextWatcher() {
 
-            @Override
-            public void onTextChanged(CharSequence s, int start, int before,
-                                      int count) {
-                // TODO Auto-generated method stub
-                temp = s.toString();
-            }
-
-            @Override
-            public void beforeTextChanged(CharSequence s, int start, int count,
-                                          int after) {
-                // TODO Auto-generated method stub
-
-            }
-
-            @Override
-            public void afterTextChanged(Editable s) {
-                // TODO Auto-generated method stub
-
-            }
-        });
         activity_selectimg_send = (TextView) findViewById(R.id.activity_selectimg_send);
         activity_selectimg_send.setOnClickListener(new OnClickListener() {
 

@@ -24,7 +24,7 @@ public class RecommendFragment extends BaseFragment{
                 parent.removeView(rootView);
             }
         } else {
-            rootView = inflater.inflate(R.layout.fragment_setting, null);
+            rootView = inflater.inflate(R.layout.fragment_recommend, null);
             initView(rootView);// 控件初始化
         }
 
