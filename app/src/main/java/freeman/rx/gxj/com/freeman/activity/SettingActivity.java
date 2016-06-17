@@ -66,6 +66,8 @@ public class SettingActivity extends BaseActivity implements OnClickListener,
 			break;
 		case R.id.feedback:
 			Toast.makeText(SettingActivity.this,"反馈意见",Toast.LENGTH_SHORT).show();
+			Intent intent = new Intent(SettingActivity.this,SelectPictureActivity.class);
+			startActivity(intent);
 			//反馈意见
 			break;
 		case R.id.remmend_firend:
