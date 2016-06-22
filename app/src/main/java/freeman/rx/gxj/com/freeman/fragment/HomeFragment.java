@@ -10,6 +10,7 @@ import android.widget.TextView;
 
 import freeman.rx.gxj.com.freeman.activity.MainActivity;
 import freeman.rx.gxj.com.freeman.activity.R;
+import freeman.rx.gxj.com.freeman.commutil.LogUtils;
 import freeman.rx.gxj.com.freeman.parent.BaseFragment;
 
 /**
@@ -17,6 +18,7 @@ import freeman.rx.gxj.com.freeman.parent.BaseFragment;
  */
 public class HomeFragment extends BaseFragment{
 
+    public static final String TAG = "HomeFragment";
     private View rootView;
     private TextView textView;
     MainActivity mainActivity;
@@ -53,5 +55,61 @@ public class HomeFragment extends BaseFragment{
         });
     }
 
+    @Override
+    public void onActivityCreated(Bundle savedInstanceState) {
+        super.onActivityCreated(savedInstanceState);
+        LogUtils.Log(TAG, ">>>>onActivityCreated>>>>>");
+    }
+
+    @Override
+    public void onStart() {
+        super.onStart();
+        LogUtils.Log(TAG, ">>>>onStart>>>>>");
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        LogUtils.Log(TAG, ">>>>onResume>>>>>");
+    }
+
+    @Override
+    public void onPause() {
+        super.onPause();
+        LogUtils.Log(TAG, ">>>>onPause>>>>>");
+    }
+
+    @Override
+    public void onStop() {
+        super.onStop();
+        LogUtils.Log(TAG, ">>>>onStop>>>>>");
+    }
+
+
+    @Override
+    public void onHiddenChanged(boolean hidden) {
+        // TODO Auto-generated method stub
+        LogUtils.Log(TAG, ">>>>onHiddenChanged>>>>>" + hidden);
+        super.onHiddenChanged(hidden);
+    }
+
+
+    @Override
+    public void onDestroyView() {
+        super.onDestroyView();
+        LogUtils.Log(TAG, ">>>>onDestroyView>>>>>");
+    }
+
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+        LogUtils.Log(TAG, ">>>>onDestroy>>>>>");
+    }
+
+    @Override
+    public void onDetach() {
+        super.onDetach();
+        LogUtils.Log(TAG, ">>>>onDetach>>>>>");
+    }
 
 }

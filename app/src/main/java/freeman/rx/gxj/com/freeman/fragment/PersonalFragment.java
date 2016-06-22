@@ -11,6 +11,7 @@ import android.view.ViewGroup;
 import freeman.rx.gxj.com.freeman.activity.R;
 import freeman.rx.gxj.com.freeman.adapter.MyRecyclerAdapter;
 import freeman.rx.gxj.com.freeman.adapter.RecycleViewDivider;
+import freeman.rx.gxj.com.freeman.commutil.LogUtils;
 import freeman.rx.gxj.com.freeman.parent.BaseFragment;
 
 /**
@@ -18,6 +19,7 @@ import freeman.rx.gxj.com.freeman.parent.BaseFragment;
  */
 public class PersonalFragment extends BaseFragment{
 
+    public static final String TAG = "PersonalFragment";
     private View rootView;
     private RecyclerView recyclerView;
     private RecyclerView.Adapter mAdapter;
@@ -65,6 +67,13 @@ public class PersonalFragment extends BaseFragment{
 
         recyclerView.setAdapter(mAdapter);
 
+    }
+
+    @Override
+    public void onHiddenChanged(boolean hidden) {
+        // TODO Auto-generated method stub
+        LogUtils.Log(TAG, ">>>>onHiddenChanged>>>>>" + hidden);
+        super.onHiddenChanged(hidden);
     }
     
 }

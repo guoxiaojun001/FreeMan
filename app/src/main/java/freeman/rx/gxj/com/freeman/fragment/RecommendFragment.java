@@ -6,6 +6,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import freeman.rx.gxj.com.freeman.activity.R;
+import freeman.rx.gxj.com.freeman.commutil.LogUtils;
 import freeman.rx.gxj.com.freeman.parent.BaseFragment;
 
 /**
@@ -13,6 +14,7 @@ import freeman.rx.gxj.com.freeman.parent.BaseFragment;
  */
 public class RecommendFragment extends BaseFragment{
 
+    public static final String TAG = "RecommendFragment";
     private View rootView;
 
     @Override
@@ -34,5 +36,11 @@ public class RecommendFragment extends BaseFragment{
     private void initView(View view){
 
     }
-    
+
+    @Override
+    public void onHiddenChanged(boolean hidden) {
+        // TODO Auto-generated method stub
+        LogUtils.Log(TAG, ">>>>onHiddenChanged>>>>>" + hidden);
+        super.onHiddenChanged(hidden);
+    }
 }

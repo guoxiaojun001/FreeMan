@@ -7,6 +7,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import freeman.rx.gxj.com.freeman.activity.R;
+import freeman.rx.gxj.com.freeman.commutil.LogUtils;
 import freeman.rx.gxj.com.freeman.effect.Shimmer;
 import freeman.rx.gxj.com.freeman.effect.ShimmerTextView;
 import freeman.rx.gxj.com.freeman.parent.BaseFragment;
@@ -16,7 +17,7 @@ import freeman.rx.gxj.com.freeman.parent.BaseFragment;
  */
 public class DiscoveryFragment extends BaseFragment{
 
-
+    public static final String TAG = "DiscoveryFragment";
     private View rootView;
     private ShimmerTextView shimmer_tv;
     private Shimmer shimmer;
@@ -46,6 +47,14 @@ public class DiscoveryFragment extends BaseFragment{
         shimmer.start(shimmer_tv);
         //shimmer.cancel();//取消闪烁
 
+    }
+
+
+    @Override
+    public void onHiddenChanged(boolean hidden) {
+        // TODO Auto-generated method stub
+        LogUtils.Log(TAG, ">>>>onHiddenChanged>>>>>" + hidden);
+        super.onHiddenChanged(hidden);
     }
     
 }
