@@ -93,6 +93,10 @@ public class HomeFragment extends BaseFragment{
         super.onHiddenChanged(hidden);
     }
 
+    @Override
+    public void setUserVisibleHint(boolean isVisibleToUser) {
+        super.setUserVisibleHint(isVisibleToUser);
+    }
 
     @Override
     public void onDestroyView() {
