@@ -40,7 +40,7 @@ public class HomeFragment extends BaseFragment{
     }
 
     @Override
-    public void onAttach(Activity activity) {
+    public void onAttach(Context activity) {
         super.onAttach(activity);
         mainActivity = (MainActivity)activity;
     }

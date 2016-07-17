@@ -1,13 +1,6 @@
 package freeman.rx.gxj.com.freeman.fragment;
 
-import android.content.Context;
 import android.content.Intent;
-import android.graphics.Bitmap;
-import android.graphics.BitmapShader;
-import android.graphics.Canvas;
-import android.graphics.Color;
-import android.graphics.Paint;
-import android.graphics.Shader;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -16,10 +9,8 @@ import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.Toast;
 
-import com.nostra13.universalimageloader.core.ImageLoader;
-import com.nostra13.universalimageloader.core.assist.FailReason;
-import com.nostra13.universalimageloader.core.listener.ImageLoadingListener;
 
+import freeman.rx.gxj.com.freeman.activity.NotificationUpdateActivity;
 import freeman.rx.gxj.com.freeman.activity.R;
 import freeman.rx.gxj.com.freeman.activity.SettingActivity;
 import freeman.rx.gxj.com.freeman.commutil.CircleImageLoader;
@@ -73,7 +64,7 @@ public class MenuLeftFragment extends BaseFragment implements View.OnClickListen
 				break;
 
 			case R.id.me :
-				Toast.makeText(mActivity,"qqqqqq",Toast.LENGTH_SHORT).show();
+				Toast.makeText(mActivity,"NotificationUpdateActivity",Toast.LENGTH_SHORT).show();
 				break;
 			default:
 				break;

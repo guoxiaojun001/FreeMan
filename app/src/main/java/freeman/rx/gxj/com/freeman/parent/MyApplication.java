@@ -18,11 +18,23 @@ import freeman.rx.gxj.com.freeman.activity.R;
  */
 public class MyApplication extends Application {
 
+
+    private boolean isDownload;
+
     @Override
     public void onCreate() {
         super.onCreate();
 
         configImageLoader();
+        isDownload = false;
+    }
+
+    public boolean isDownload() {
+        return isDownload;
+    }
+
+    public void setDownload(boolean isDownload) {
+        this.isDownload = isDownload;
     }
 
     private void configImageLoader() {

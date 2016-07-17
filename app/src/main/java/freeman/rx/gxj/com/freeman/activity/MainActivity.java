@@ -1,8 +1,12 @@
 package freeman.rx.gxj.com.freeman.activity;
 
+import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.pm.PackageInfo;
+import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.support.v4.widget.DrawerLayout;
+import android.support.v7.app.AlertDialog;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.MenuItem;
@@ -11,11 +15,8 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TabHost;
 import android.widget.TextView;
-
 import com.nineoldandroids.view.ViewHelper;
-
 import java.util.ArrayList;
-
 import freeman.rx.gxj.com.freeman.commutil.CircleImageLoader;
 import freeman.rx.gxj.com.freeman.drag.CustomDragActivity;
 import freeman.rx.gxj.com.freeman.drag.DynamicDragActivity;
@@ -30,6 +31,7 @@ import freeman.rx.gxj.com.freeman.recycleractivity.GridPullToRefreshActivity;
 import freeman.rx.gxj.com.freeman.recycleractivity.PullToRefreshActivity;
 import freeman.rx.gxj.com.freeman.recycleractivity.PullToRefreshExpandActivity;
 import freeman.rx.gxj.com.freeman.recycleractivity.TreeAdapterViewActivity;
+import freeman.rx.gxj.com.freeman.services.UpdateAppService;
 import freeman.rx.gxj.com.freeman.tab.FragmentTabHost;
 import freeman.rx.gxj.com.freeman.tab.Tab;
 import android.support.design.widget.NavigationView;
@@ -59,7 +61,63 @@ public class MainActivity extends BaseActivity {
 
         preferencepUtils.setFirstUse(true);
         initView();
+
+        updateVersion();
     }
+
+    /**
+     * 获取本地版本号
+     * @return
+     */
+    public int getlocalVersion(){
+        int localversion = 0;
+        try {
+            PackageInfo info = getPackageManager().getPackageInfo(getPackageName(), 0);
+            localversion = info.versionCode;
+        } catch (PackageManager.NameNotFoundException e) {
+            e.printStackTrace();
+        }
+        return localversion;
+    }
+
+    /**
+     * 获取服务器版本号
+     * @return
+     */
+    public int getServiceVersion(){
+        int serviceversion = 2;//随便写一个测试
+        return serviceversion;
+    }
+
+    /**
+     * 版本更新
+     * @param
+     */
+    public void updateVersion(){
+        if(getServiceVersion() > getlocalVersion()){
+            AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);
+            builder.setTitle("检查到新版本");
+            builder.setMessage("是否更新");
+            builder.setNegativeButton("取消", new DialogInterface.OnClickListener() {
+
+                @Override
+                public void onClick(DialogInterface dialog, int which) {
+
+                }
+            });
+            builder.setPositiveButton("确定", new DialogInterface.OnClickListener() {
+
+                @Override
+                public void onClick(DialogInterface dialog, int which) {
+                    startService(new Intent(MainActivity.this, UpdateAppService.class));
+                }
+            });
+            builder.create().show();
+        }
+    }
+
+
+
 
     private void initView() {
 
@@ -197,7 +255,7 @@ public class MainActivity extends BaseActivity {
             @Override
             public void onClick(View v) {
                 Toast.makeText(MainActivity.this,"ppppp",Toast.LENGTH_SHORT).show();
-                intent = new Intent(MainActivity.this,QQTabActivity.class);
+                intent = new Intent(MainActivity.this,/*QQTabActivity*/NotificationUpdateActivity.class);
                 startActivity(intent);
             }
         });
@@ -210,7 +268,10 @@ public class MainActivity extends BaseActivity {
         head_image2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(MainActivity.this,"qqqqqq",Toast.LENGTH_SHORT).show();
+                Toast.makeText(MainActivity.this,"3wwww",Toast.LENGTH_SHORT).show();
+//                intent = new Intent(MainActivity.this, NotificationUpdateActivity.class);
+//                startActivity(intent);
+
                 mDrawerLayout.closeDrawers();
             }
         });
