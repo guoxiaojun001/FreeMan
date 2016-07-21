@@ -25,6 +25,13 @@ android {
     }
 }
 
+
+repositories {
+    flatDir {
+        dirs 'libs'
+    }
+}
+
 dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
     testCompile 'junit:junit:4.12'
@@ -35,4 +42,8 @@ dependencies {
     compile 'com.google.code.gson:gson:2.2.4'
 
     compile 'io.reactivex:rxandroid:0.24.0'
+
+    compile 'com.7heaven.widgets:segmentcontrol:1.14'
+
+    compile(name:'livedetectlibrary', ext:'aar')
 }

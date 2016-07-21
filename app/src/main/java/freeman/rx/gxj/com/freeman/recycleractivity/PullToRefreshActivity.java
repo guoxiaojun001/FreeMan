@@ -56,7 +56,7 @@ public class PullToRefreshActivity extends AppCompatActivity {
             mRecyclerView.postDelayed(() -> {
                 mAdapter.addItems(Date.createItems(this, 2), 0);
                 mRecyclerView.onRefreshComplete();
-            }, 1000);
+            }, 0);
         });
         //上拉刷新
         mRecyclerView.setOnPullDownToRefreshListener(() -> {
@@ -71,9 +71,9 @@ public class PullToRefreshActivity extends AppCompatActivity {
                         mAdapter.addItems(Date.createItems(this, 4));
                         mRecyclerView.onRefreshComplete();
                     });
-                }, 1000);
+                }, 0);
             } else {
-                mRecyclerView.postDelayed(() -> mRecyclerView.setFooterComplete(), 1000);
+                mRecyclerView.postDelayed(() -> mRecyclerView.setFooterComplete(), 0);
             }
             times++;
         });
@@ -93,7 +93,9 @@ public class PullToRefreshActivity extends AppCompatActivity {
      */
     public View getHeaderView() {
         int textColor = Date.getRandomColor();
-        View header = LayoutInflater.from(this).inflate(R.layout.recyclerview_header1, (ViewGroup) findViewById(android.R.id.content), false);
+        View header = LayoutInflater.from(this).inflate(
+                R.layout.recyclerview_header1,
+                (ViewGroup) findViewById(android.R.id.content), false);
         TextView headerView = (TextView) header;
         headerView.setTextColor(textColor);
         headerView.setText("HeaderView:" + mRecyclerView.getHeaderViewCount());
@@ -121,6 +123,5 @@ public class PullToRefreshActivity extends AppCompatActivity {
 
         return super.onOptionsItemSelected(item);
     }
-
 
 }

@@ -34,6 +34,8 @@ import freeman.rx.gxj.com.freeman.recycleractivity.TreeAdapterViewActivity;
 import freeman.rx.gxj.com.freeman.services.UpdateAppService;
 import freeman.rx.gxj.com.freeman.tab.FragmentTabHost;
 import freeman.rx.gxj.com.freeman.tab.Tab;
+import product.finance.xmqq.com.livedetectlibrary.XMActivity;
+
 import android.support.design.widget.NavigationView;
 import android.widget.Toast;
 
@@ -176,7 +178,9 @@ public class MainActivity extends BaseActivity {
             //**************左边菜单
             case R.id.go_home_fragment:
                 Toast.makeText(MainActivity.this,"000",Toast.LENGTH_SHORT).show();
-                intent = new Intent(MainActivity.this,PullToRefreshActivity.class);
+//                intent = new Intent(MainActivity.this,PullToRefreshActivity.class);
+                intent = new Intent(MainActivity.this,XMActivity.class);
+
                 startActivity(intent);
                 break;
             case R.id.go_discovery_fragment:

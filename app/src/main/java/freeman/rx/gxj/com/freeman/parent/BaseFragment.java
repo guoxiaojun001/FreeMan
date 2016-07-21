@@ -2,13 +2,19 @@ package freeman.rx.gxj.com.freeman.parent;
 
 
 import android.app.Activity;
+import android.app.Service;
 import android.content.Context;
 import android.graphics.Bitmap;
 import android.os.Bundle;
+import android.os.Handler;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.util.DisplayMetrics;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.WindowManager;
+import android.view.inputmethod.InputMethodManager;
+import android.widget.EditText;
 
 import com.nostra13.universalimageloader.core.DisplayImageOptions;
 
@@ -25,6 +31,7 @@ public class BaseFragment<T extends Activity> extends Fragment {
     private int screenHeight;
     private int screenWidth;
     protected DisplayImageOptions options;
+    protected LayoutInflater inflater;
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
@@ -48,7 +55,31 @@ public class BaseFragment<T extends Activity> extends Fragment {
         mActivity.getWindowManager().getDefaultDisplay().getMetrics(outMetrics);
         screenHeight = outMetrics.heightPixels;
         screenWidth = outMetrics.widthPixels;
+
+        inflater = (LayoutInflater)
+                mActivity.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
     }
 
+
+    public void hideSoftInputView() {
+        InputMethodManager manager = ((InputMethodManager) mActivity.getSystemService(Activity.INPUT_METHOD_SERVICE));
+        if (mActivity.getWindow().getAttributes().softInputMode != WindowManager.LayoutParams.SOFT_INPUT_STATE_HIDDEN) {
+            if (mActivity.getCurrentFocus() != null)
+                manager.hideSoftInputFromWindow(mActivity.getCurrentFocus().
+                        getWindowToken(), InputMethodManager.HIDE_NOT_ALWAYS);
+        }
+    }
+
+    /**
+     * 弹出输入法窗口
+     */
+    public void showSoftInputView(final EditText et) {
+        new Handler().postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                ((InputMethodManager) et.getContext().getSystemService(Service.INPUT_METHOD_SERVICE)).toggleSoftInput(0, InputMethodManager.HIDE_NOT_ALWAYS);
+            }
+        }, 0);
+    }
 
 }

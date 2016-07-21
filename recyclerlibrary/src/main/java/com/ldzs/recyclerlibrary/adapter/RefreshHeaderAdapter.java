@@ -6,7 +6,8 @@ import android.view.View;
 /**
  * Created by cz on 16/1/23.
  * 固定刷新头和尾的数据适配器
- * 永远固定第一个刷新头,与底部的刷新尾,不允许删除,配合PullToRefreshRecyclerView使用,而HeaderAdapter则可单独使用
+ * 永远固定第一个刷新头,与底部的刷新尾,不允许删除,
+ * 配合PullToRefreshRecyclerView使用,而HeaderAdapter则可单独使用
  * 不会影响HeaderAdapter自身逻辑
  */
 public class RefreshHeaderAdapter extends HeaderAdapter {

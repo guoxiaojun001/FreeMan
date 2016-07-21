@@ -39,12 +39,9 @@ public class SettingActivity extends BaseActivity implements OnClickListener,
 		TextView assess = (TextView) findViewById(R.id.assess);
 		logout = (Button) findViewById(R.id.logout);
 		ToggleButton auto_play = (ToggleButton) findViewById(R.id.auto_play);
-		boolean auto = preferencepUtils.getBoolean(this, "auto_play",
-				false);
-		auto_play.setChecked(auto);
-		boolean wifi = preferencepUtils.getBoolean(this,
-				"prompt__not_wifi", true);
-		prompt__not_wifi.setChecked(wifi);
+
+
+		prompt__not_wifi.setChecked(false);
 
 		auto_play.setOnCheckedChangeListener(this);
 		prompt__not_wifi.setOnCheckedChangeListener(this);
@@ -80,9 +77,8 @@ public class SettingActivity extends BaseActivity implements OnClickListener,
 			AppUtils.goMarket(SettingActivity.this);
 			break;
 		case R.id.logout:
-				// 退出
-			Toast.makeText(this, "退出", Toast.LENGTH_SHORT).show();
-				int4Right();
+
+
 			break;
 
 		default:
@@ -92,7 +88,8 @@ public class SettingActivity extends BaseActivity implements OnClickListener,
 
 	@Override
 	public void onCheckedChanged(CompoundButton arg0, boolean arg1) {
-		preferencepUtils.setBoolean(this, (String) arg0.getTag(), arg1);
+
+
 	}
 
 

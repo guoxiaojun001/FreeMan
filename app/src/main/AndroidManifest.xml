@@ -10,9 +10,6 @@
 
     <uses-permission android:name="android.permission.CAMERA" />
 
-
-    <uses-sdk android:minSdkVersion="8" />
-
     <application
         android:name="freeman.rx.gxj.com.freeman.parent.MyApplication"
         android:allowBackup="true"
@@ -24,7 +21,6 @@
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
@@ -48,9 +44,12 @@
         <activity android:name="freeman.rx.gxj.com.freeman.activity.PhotoBrowserActivity"/>
 
         <activity android:name="freeman.rx.gxj.com.freeman.activity.NotificationUpdateActivity"/>
-        
+
         <service android:name="freeman.rx.gxj.com.freeman.services.UpdateAppService"/>
 
+        <activity
+            android:name="product.finance.xmqq.com.livedetectlibrary.XMActivity"
+            />
         <service android:name="freeman.rx.gxj.com.freeman.services.DownloadService" />
     </application>
 
