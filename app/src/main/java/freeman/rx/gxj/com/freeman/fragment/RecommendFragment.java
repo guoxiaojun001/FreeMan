@@ -15,6 +15,7 @@ import android.text.style.ImageSpan;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.WindowManager;
 import android.widget.AdapterView;
 import android.widget.EditText;
 import android.widget.GridView;
@@ -81,6 +82,7 @@ public class RecommendFragment extends BaseFragment implements View.OnClickListe
         } else {
             rootView = inflater.inflate(R.layout.fragment_recommend, null);
             initView(rootView);// 控件初始化
+            initAdd(rootView);
         }
         return rootView;
     }
@@ -89,6 +91,7 @@ public class RecommendFragment extends BaseFragment implements View.OnClickListe
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         staticFacesList = initStaticFaces(mActivity);
+        mActivity.getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_ADJUST_PAN);
     }
 
 
@@ -156,6 +159,25 @@ public class RecommendFragment extends BaseFragment implements View.OnClickListe
 
         //初始化表情
         initViewPager();
+    }
+
+
+    public void initAdd(View rootView) {
+        tv_weather = (TextView) rootView.findViewById(R.id.tv_weather);
+        tv_xingzuo = (TextView) rootView.findViewById(R.id.tv_xingzuo);
+        tv_joke = (TextView) rootView.findViewById(R.id.tv_joke);
+        tv_loc = (TextView) rootView.findViewById(R.id.tv_loc);
+        tv_gg = (TextView) rootView.findViewById(R.id.tv_gg);
+        tv_mm = (TextView) rootView.findViewById(R.id.tv_mm);
+        tv_music = (TextView) rootView.findViewById(R.id.tv_music);
+
+        tv_weather.setOnClickListener(this);
+        tv_xingzuo.setOnClickListener(this);
+        tv_joke.setOnClickListener(this);
+        tv_loc.setOnClickListener(this);
+        tv_gg.setOnClickListener(this);
+        tv_mm.setOnClickListener(this);
+        tv_music.setOnClickListener(this);
     }
 
     /**
